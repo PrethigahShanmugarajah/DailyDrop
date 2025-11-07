@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap");
+
+@import "tailwindcss";
+
+* {
+  font-family: "Instrument Serif", serif;
+}
+
+@theme {
+  --color-primary: #ef4444;
+  --color-primary-dull: #dc2626;
+}
