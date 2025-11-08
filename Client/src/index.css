@@ -35,3 +35,7 @@
   --color-ivory: #fffafa;
   --color-white-soft: #fffdfd;
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
