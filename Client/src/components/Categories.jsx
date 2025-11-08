@@ -19,6 +19,10 @@ const Categories = () => {
     updateCartItem,
     removeFromCart,
     cartItems,
+    searchQuery,
+    setSearchQuery,
+    getCartCount,
+    getCartAmount,
   } = useAppContext();
 
   return (
