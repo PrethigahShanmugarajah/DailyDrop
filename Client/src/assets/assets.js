@@ -35,6 +35,7 @@ import Bottom_Banner from "./Bottom_Banner.png";
 import bottom_banner_image_sm from "./bottom_banner_image_sm.png";
 import Bottom_Banner_Small from "./Bottom_Banner_Small.png";
 import add_address_iamge from "./add_address_image.svg";
+import Add_Address_Image from "./Add_Address_Image.png";
 import organic_vegitable_image from "./organic_vegitable_image.png";
 import fresh_fruits_image from "./fresh_fruits_image.png";
 import bottles_image from "./bottles_image.png";
@@ -117,6 +118,7 @@ export const assets = {
   bottom_banner_image_sm,
   Bottom_Banner_Small,
   add_address_iamge,
+  Add_Address_Image,
   box_icon,
   Box_Icon,
 };
