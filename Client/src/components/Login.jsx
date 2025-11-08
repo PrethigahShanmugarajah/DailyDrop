@@ -23,6 +23,10 @@ const Login = () => {
     updateCartItem,
     removeFromCart,
     cartItems,
+    searchQuery,
+    setSearchQuery,
+    getCartCount,
+    getCartAmount,
   } = useAppContext();
 
   const onSubmitHandler = async (event) => {
