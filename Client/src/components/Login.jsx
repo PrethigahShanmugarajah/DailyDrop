@@ -111,7 +111,7 @@ const Login = () => {
         <Button
           text={state === "register" ? "Create Account" : "Login"}
           type="submit"
-          className="w-full py-2"
+          className="w-full"
           variant="primary"
         />
       </form>
