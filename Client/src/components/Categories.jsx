@@ -1,13 +1,29 @@
+// Client/src/components/Categories.jsx
 import React from "react";
 import { assets, categories } from "../assets/assets";
 import { useAppContext } from "../context/AppContext";
+import Title from "./Title";
 
 const Categories = () => {
-  const { navigate } = useAppContext();
+  const {
+    navigate,
+    user,
+    setUser,
+    isSeller,
+    setIsSeller,
+    showUserLogin,
+    setShowUserLogin,
+    products,
+    currency,
+    addToCart,
+    updateCartItem,
+    removeFromCart,
+    cartItems,
+  } = useAppContext();
 
   return (
     <div className="mt-16">
-      <p className="text-2xl md:text-3xl font-medium">Categories</p>
+      <Title text1={"Our"} text2={"Categories"} />
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 mt-6 gap-6">
         {categories.map((category, index) => (
           <div
