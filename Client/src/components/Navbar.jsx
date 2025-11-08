@@ -1,5 +1,5 @@
 // Client/src/components/Navbar.jsx
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Button from "./Button";
 import { NavLink } from "react-router-dom";
 import { assets } from "../assets/assets";
@@ -7,7 +7,7 @@ import { useAppContext } from "../context/AppContext";
 import { Menu, Search, ShoppingCart } from "lucide-react";
 
 const Navbar = () => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const {
     navigate,
     user,
@@ -22,12 +22,20 @@ const Navbar = () => {
     updateCartItem,
     removeFromCart,
     cartItems,
+    searchQuery,
+    setSearchQuery,
   } = useAppContext();
 
   const logout = async () => {
     setUser(null);
     navigate("/");
   };
+
+  useEffect(() => {
+    if (searchQuery.length > 0) {
+      navigate("/products");
+    }
+  }, [searchQuery]);
 
   return (
     <nav className="flex items-center justify-between px-4 md:px-14 py-4 border-b border-gray-200 bg-white relative transition-all">
@@ -51,6 +59,7 @@ const Navbar = () => {
 
         <div className="hidden lg:flex items-center text-sm gap-2 border border-gray-200 px-3 rounded-full">
           <input
+            onChange={(e) => setSearchQuery(e.target.value)}
             className="py-1.5 w-full bg-transparent outline-none   placeholder-gray-300"
             type="text"
             placeholder="Search products"
