@@ -5,25 +5,7 @@ import ProductCard from "./ProductCard";
 import { useAppContext } from "../context/AppContext";
 
 const BestSeller = () => {
-  const {
-    navigate,
-    user,
-    setUser,
-    isSeller,
-    setIsSeller,
-    showUserLogin,
-    setShowUserLogin,
-    products,
-    currency,
-    addToCart,
-    updateCartItem,
-    removeFromCart,
-    cartItems,
-    searchQuery,
-    setSearchQuery,
-    getCartCount,
-    getCartAmount,
-  } = useAppContext();
+  const { products } = useAppContext();
 
   return (
     <div className="mt-16">

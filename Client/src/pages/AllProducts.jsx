@@ -5,25 +5,7 @@ import { useAppContext } from "../context/AppContext";
 import ProductCard from "../components/ProductCard";
 
 const AllProducts = () => {
-  const {
-    navigate,
-    user,
-    setUser,
-    isSeller,
-    setIsSeller,
-    showUserLogin,
-    setShowUserLogin,
-    products,
-    currency,
-    addToCart,
-    updateCartItem,
-    removeFromCart,
-    cartItems,
-    searchQuery,
-    setSearchQuery,
-    getCartCount,
-    getCartAmount,
-  } = useAppContext();
+  const { products, searchQuery } = useAppContext();
 
   const [filteredProducts, setFilteredProducts] = useState([]);
 

@@ -6,25 +6,7 @@ import { assets, dummyOrders } from "../../assets/assets";
 import { formatDate } from "../../utils/dateTime";
 
 const Orders = () => {
-  const {
-    navigate,
-    user,
-    setUser,
-    isSeller,
-    setIsSeller,
-    showUserLogin,
-    setShowUserLogin,
-    products,
-    currency,
-    addToCart,
-    updateCartItem,
-    removeFromCart,
-    cartItems,
-    searchQuery,
-    setSearchQuery,
-    getCartCount,
-    getCartAmount,
-  } = useAppContext();
+  const { currency } = useAppContext();
   const [orders, setOrders] = useState([]);
 
   const fetchOrders = async () => {

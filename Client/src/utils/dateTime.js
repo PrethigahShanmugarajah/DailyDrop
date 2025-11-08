@@ -1,5 +1,3 @@
-// Client/src/utils/dateTime.js
-
 /* ---------------- Format date as DD/MM/YYYY HH:MM:SS AM/PM ---------------- */
 export const formatDate = (dateString) => {
   if (!dateString) return "";

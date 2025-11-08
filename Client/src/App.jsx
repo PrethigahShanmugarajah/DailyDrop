@@ -22,25 +22,7 @@ import Orders from "./pages/seller/Orders";
 const App = () => {
   const isSellerPath = useLocation().pathname.includes("seller");
 
-  const {
-    navigate,
-    user,
-    setUser,
-    isSeller,
-    setIsSeller,
-    showUserLogin,
-    setShowUserLogin,
-    products,
-    currency,
-    addToCart,
-    updateCartItem,
-    removeFromCart,
-    cartItems,
-    searchQuery,
-    setSearchQuery,
-    getCartCount,
-    getCartAmount,
-  } = useAppContext();
+  const { isSeller, showUserLogin } = useAppContext();
 
   return (
     <div className="text-default min-h-screen text-gray-700 bg-white ">

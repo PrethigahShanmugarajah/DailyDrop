@@ -10,25 +10,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const {
-    navigate,
-    user,
-    setUser,
-    isSeller,
-    setIsSeller,
-    showUserLogin,
-    setShowUserLogin,
-    products,
-    currency,
-    addToCart,
-    updateCartItem,
-    removeFromCart,
-    cartItems,
-    searchQuery,
-    setSearchQuery,
-    getCartCount,
-    getCartAmount,
-  } = useAppContext();
+  const { setUser, setShowUserLogin } = useAppContext();
 
   const onSubmitHandler = async (event) => {
     event.preventDefault();
@@ -111,9 +93,6 @@ const Login = () => {
             </span>
           </p>
         )}
-        {/* <button className="bg-primary hover:bg-primary-dull transition-all text-white w-full py-2 rounded-md cursor-pointer">
-          {state === "register" ? "Create Account" : "Login"}
-        </button> */}
 
         <Button
           text={state === "register" ? "Create Account" : "Login"}

@@ -5,25 +5,7 @@ import { useAppContext } from "../context/AppContext";
 import Title from "./Title";
 
 const Categories = () => {
-  const {
-    navigate,
-    user,
-    setUser,
-    isSeller,
-    setIsSeller,
-    showUserLogin,
-    setShowUserLogin,
-    products,
-    currency,
-    addToCart,
-    updateCartItem,
-    removeFromCart,
-    cartItems,
-    searchQuery,
-    setSearchQuery,
-    getCartCount,
-    getCartAmount,
-  } = useAppContext();
+  const { navigate } = useAppContext();
 
   return (
     <div className="mt-16">

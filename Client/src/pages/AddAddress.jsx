@@ -45,7 +45,7 @@ const AddAddress = () => {
   return (
     <div className="mt-16 pb-16">
       <Title text1={"Add Shipping"} text2={"Address"} />
-      <div className="flex md:flex-row justify-between mt-10">
+      <div className="flex md:flex-row justify-between mt-6">
         <div className="flex-1 max-w-md">
           <form onSubmit={onSubmitHandler} className="space-y-3 mt-6 text-sm">
             <div className="grid grid-cols-2 gap-4">

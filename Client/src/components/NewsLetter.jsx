@@ -20,12 +20,6 @@ const NewsLetter = () => {
             required
           />
 
-          {/* <button
-            type="submit"
-            className="md:px-12 px-8 h-full text-white bg-primary hover:bg-primary-dull transition-all cursor-pointer rounded-md rounded-l-none"
-          >
-            Subscribe
-          </button> */}
           <Button text="Subscribe" type="submit" variant="primary" />
         </div>
       </form>

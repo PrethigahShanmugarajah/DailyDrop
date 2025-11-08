@@ -7,25 +7,7 @@ import { formatDate } from "../utils/dateTime";
 
 const MyOrders = () => {
   const [myOrders, setMyOrders] = useState([]);
-  const {
-    navigate,
-    user,
-    setUser,
-    isSeller,
-    setIsSeller,
-    showUserLogin,
-    setShowUserLogin,
-    products,
-    currency,
-    addToCart,
-    updateCartItem,
-    removeFromCart,
-    cartItems,
-    searchQuery,
-    setSearchQuery,
-    getCartCount,
-    getCartAmount,
-  } = useAppContext();
+  const { currency } = useAppContext();
 
   const fetchMyOrders = async () => {
     setMyOrders(dummyOrders);

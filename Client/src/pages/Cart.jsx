@@ -9,20 +9,11 @@ import { ArrowLeft, XCircle } from "lucide-react";
 const Cart = () => {
   const {
     navigate,
-    user,
-    setUser,
-    isSeller,
-    setIsSeller,
-    showUserLogin,
-    setShowUserLogin,
     products,
     currency,
-    addToCart,
     updateCartItem,
     removeFromCart,
     cartItems,
-    searchQuery,
-    setSearchQuery,
     getCartCount,
     getCartAmount,
   } = useAppContext();
@@ -53,17 +44,16 @@ const Cart = () => {
   return products.length > 0 && cartItems ? (
     <div className="flex flex-col md:flex-row mt-16">
       <div className="flex-1 max-w-4xl">
-        {/* <h1 className="text-3xl font-medium mb-6">
-          Shopping Cart{" "}
-          <span className="text-sm text-primary">{getCartCount()} Items</span>
-        </h1> */}
-
         <Title
-          text1="Shopping Cart"
-          text2={<span className="text-sm">{getCartCount()} Items</span>}
+          text1="Shopping"
+          text2={
+            <>
+              Cart <span className="text-sm"> {getCartCount()} Items</span>
+            </>
+          }
         />
 
-        <div className="grid grid-cols-[2fr_1fr_1fr] text-black text-base font-medium pb-3">
+        <div className="grid grid-cols-[2fr_1fr_1fr] text-black text-base font-medium pb-3 mt-6">
           <p className="text-left">Product Details</p>
           <p className="text-center">Subtotal</p>
           <p className="text-center">Action</p>
@@ -243,13 +233,6 @@ const Cart = () => {
             </span>
           </p>
         </div>
-
-        {/* <button
-          onClick={placeOrder}
-          className="w-full py-3 mt-6 cursor-pointer bg-primary text-white font-medium hover:bg-primary-dull transition"
-        >
-          {paymentOption === "COD" ? "Place Order" : "Proceed to Checkout"}
-        </button> */}
 
         <Button
           text={paymentOption === "COD" ? "Place Order" : "Proceed to Checkout"}

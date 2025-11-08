@@ -10,9 +10,9 @@ const Footer = () => {
           <img src={assets.Logo} className="w-34 md:w-32" alt="Logo" />
 
           <p className="max-w-[410px] mt-6">
-            DailyDrop delivers fresh groceries and everyday essentials straight
-            to your doorstep. Enjoy quick, convenient, and reliable shopping
-            with exclusive offers and top-quality products.
+            DailyDrop ensures quality groceries delivered fast to your doorstep.
+            Shop easily, enjoy exclusive deals, and get the freshest products
+            every day.
           </p>
         </div>
         <div className="flex flex-wrap justify-between w-full md:w-[45%] gap-5">

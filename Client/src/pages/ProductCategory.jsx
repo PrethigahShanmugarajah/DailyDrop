@@ -7,25 +7,7 @@ import Title from "../components/Title";
 import ProductCard from "../components/ProductCard";
 
 const ProductCategory = () => {
-  const {
-    navigate,
-    user,
-    setUser,
-    isSeller,
-    setIsSeller,
-    showUserLogin,
-    setShowUserLogin,
-    products,
-    currency,
-    addToCart,
-    updateCartItem,
-    removeFromCart,
-    cartItems,
-    searchQuery,
-    setSearchQuery,
-    getCartCount,
-    getCartAmount,
-  } = useAppContext();
+  const { products, searchQuery } = useAppContext();
 
   const { category } = useParams();
 
@@ -45,12 +27,6 @@ const ProductCategory = () => {
     <div className="mt-16">
       {searchQuery && (
         <div className="flex flex-col items-end w-max">
-          {/* <p className="text-2xl font-medium">
-            {searchCategory.text.toUpperCase()}
-          </p>
-
-          <div className="w-16 h-0.5 bg-primary rounded-full"></div> */}
-
           {searchCategory && <Title text1={text1} text2={text2} />}
         </div>
       )}

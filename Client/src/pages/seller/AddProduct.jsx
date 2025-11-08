@@ -176,9 +176,6 @@ const AddProduct = () => {
             />
           </div>
         </div>
-        {/* <button className="px-8 py-2.5 bg-primary text-white font-medium rounded cursor-pointer">
-          ADD
-        </button> */}
 
         <Button text={"Add"} variant={"primary"} />
       </form>

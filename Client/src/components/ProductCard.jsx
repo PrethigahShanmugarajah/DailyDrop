@@ -5,25 +5,8 @@ import { useAppContext } from "../context/AppContext";
 import { ShoppingCart, Star } from "lucide-react";
 
 const ProductCard = ({ product }) => {
-  const {
-    navigate,
-    user,
-    setUser,
-    isSeller,
-    setIsSeller,
-    showUserLogin,
-    setShowUserLogin,
-    products,
-    currency,
-    addToCart,
-    updateCartItem,
-    removeFromCart,
-    cartItems,
-    searchQuery,
-    setSearchQuery,
-    getCartCount,
-    getCartAmount,
-  } = useAppContext();
+  const { navigate, currency, addToCart, removeFromCart, cartItems } =
+    useAppContext();
 
   return (
     product && (

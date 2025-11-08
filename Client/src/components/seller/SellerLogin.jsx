@@ -5,25 +5,7 @@ import Button from "../Button";
 import Title from "../Title";
 
 const SellerLogin = () => {
-  const {
-    navigate,
-    user,
-    setUser,
-    isSeller,
-    setIsSeller,
-    showUserLogin,
-    setShowUserLogin,
-    products,
-    currency,
-    addToCart,
-    updateCartItem,
-    removeFromCart,
-    cartItems,
-    searchQuery,
-    setSearchQuery,
-    getCartCount,
-    getCartAmount,
-  } = useAppContext();
+  const { navigate, isSeller, setIsSeller } = useAppContext();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

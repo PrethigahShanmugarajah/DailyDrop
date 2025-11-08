@@ -224,7 +224,7 @@ export const features = [
 ];
 
 export const dummyProducts = [
-  // Vegetables
+  /* -------- Vegetables -------- */
   {
     _id: "gd46g23h",
     name: "Potato 500g",
@@ -307,7 +307,7 @@ export const dummyProducts = [
     inStock: true,
   },
 
-  // Fruits
+  /* -------- Fruits -------- */
   {
     _id: "ek51j12k",
     name: "Apple 1 kg",
@@ -392,7 +392,7 @@ export const dummyProducts = [
     inStock: true,
   },
 
-  // Dairy
+  /* -------- Dairy -------- */
   {
     _id: "ek56j67k",
     name: "Amul Milk 1L",
@@ -475,7 +475,7 @@ export const dummyProducts = [
     inStock: true,
   },
 
-  // Drinks
+  /* -------- Drinks -------- */
   {
     _id: "ek61j12k",
     name: "Coca-Cola 1.5L",
@@ -557,7 +557,7 @@ export const dummyProducts = [
     inStock: true,
   },
 
-  // Grains
+  /* -------- Grains -------- */
   {
     _id: "ek66j67k",
     name: "Basmati Rice 5kg",
@@ -639,7 +639,7 @@ export const dummyProducts = [
     inStock: true,
   },
 
-  // Bakery
+  /* -------- Bakery -------- */
   {
     _id: "bk01a24z",
     name: "Brown Bread 400g",
@@ -721,7 +721,7 @@ export const dummyProducts = [
     inStock: true,
   },
 
-  // Instant
+  /* -------- Instant -------- */
   {
     _id: "in01f25u",
     name: "Maggi Noodles 280g",

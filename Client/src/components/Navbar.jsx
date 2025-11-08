@@ -12,20 +12,10 @@ const Navbar = () => {
     navigate,
     user,
     setUser,
-    isSeller,
-    setIsSeller,
-    showUserLogin,
     setShowUserLogin,
-    products,
-    currency,
-    addToCart,
-    updateCartItem,
-    removeFromCart,
-    cartItems,
     searchQuery,
     setSearchQuery,
     getCartCount,
-    getCartAmount,
   } = useAppContext();
 
   const logout = async () => {
@@ -204,16 +194,6 @@ const Navbar = () => {
           </NavLink>
 
           {!user ? (
-            // <button
-            //   onClick={() => {
-            //     setOpen(false);
-            //     setShowUserLogin(true);
-            //   }}
-            //   className="cursor-pointer px-8 py-2 bg-primary hover:bg-primary-dull transition text-white rounded-md hover:rounded-full"
-            // >
-            //   Login
-            // </button>
-
             <Button
               text="Login"
               onClick={() => {
@@ -223,13 +203,6 @@ const Navbar = () => {
               variant="primary"
             />
           ) : (
-            // <button
-            //   onClick={logout}
-            //   className="cursor-pointer px-8 py-2 bg-primary hover:bg-primary-dull transition text-white rounded-md hover:rounded-full"
-            // >
-            //   Logout
-            // </button>
-
             <Button text="Logout" onClick={logout} variant="primary" />
           )}
         </div>

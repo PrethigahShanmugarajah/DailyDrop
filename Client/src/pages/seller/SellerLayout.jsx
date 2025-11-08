@@ -7,25 +7,7 @@ import Button from "../../components/Button";
 import { ListOrdered, ShoppingBag, SquarePlus } from "lucide-react";
 
 const SellerLayout = () => {
-  const {
-    navigate,
-    user,
-    setUser,
-    isSeller,
-    setIsSeller,
-    showUserLogin,
-    setShowUserLogin,
-    products,
-    currency,
-    addToCart,
-    updateCartItem,
-    removeFromCart,
-    cartItems,
-    searchQuery,
-    setSearchQuery,
-    getCartCount,
-    getCartAmount,
-  } = useAppContext();
+  const { setIsSeller } = useAppContext();
 
   const sidebarLinks = [
     { name: "Add Product", path: "/seller", icon: <SquarePlus size={22} /> },
@@ -54,12 +36,6 @@ const SellerLayout = () => {
 
         <div className="flex items-center gap-5 text-gray-500">
           <p>Hi! Admin</p>
-          {/* <button
-            onClick={logout}
-            className="border rounded-full text-sm px-4 py-1"
-          >
-            Logout
-          </button> */}
 
           <Button text={"Logout"} onClick={logout} variant={"secondary"} />
         </div>

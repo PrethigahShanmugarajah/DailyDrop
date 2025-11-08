@@ -35,7 +35,7 @@ export const AppContextProvider = ({ children }) => {
       cartData[itemId] = 1;
     }
     setCartItems(cartData);
-    toast.success("Added to Cart");
+    toast.success("Added To Cart");
   };
 
   /* ---------------- UPDATE CART ITEM QUANTITY ---------------- */
@@ -57,7 +57,7 @@ export const AppContextProvider = ({ children }) => {
         delete cartData[itemId];
       }
     }
-    toast.success("Removed from Cart");
+    toast.success("Removed From Cart");
     setCartItems(cartData);
   };
 

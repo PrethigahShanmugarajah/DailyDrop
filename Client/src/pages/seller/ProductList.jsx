@@ -4,30 +4,13 @@ import Title from "../../components/Title";
 import { useAppContext } from "../../context/AppContext";
 
 const ProductList = () => {
-  const {
-    navigate,
-    user,
-    setUser,
-    isSeller,
-    setIsSeller,
-    showUserLogin,
-    setShowUserLogin,
-    products,
-    currency,
-    addToCart,
-    updateCartItem,
-    removeFromCart,
-    cartItems,
-    searchQuery,
-    setSearchQuery,
-    getCartCount,
-    getCartAmount,
-  } = useAppContext();
+  const { products, currency } = useAppContext();
 
   return (
     <div className="no-scrollbar flex-1 h-[95vh] overflow-y-scroll flex -flex-col justify-between">
       <div className="w-full md:p-10 p-4">
         <Title text1={"All"} text2={"Products"} />
+
         <div className="flex flex-col items-center max-w-4xl w-full overflow-hidden rounded-md bg-white border border-gray-200 mt-6">
           <table className="md:table-auto table-fixed w-full overflow-hidden">
             <thead className="text-black text-sm text-left">
