@@ -57,7 +57,7 @@ const SellerLogin = () => {
               value={email}
               type="email"
               placeholder="Your Email"
-              className="border border-gray-200 rounded w-full p-2 mt-1 outline-primary"
+              className="border border-gray-200 rounded w-full p-2 mt-1 outline-primary placeholder-gray-300"
               required
             />
           </div>
@@ -69,7 +69,7 @@ const SellerLogin = () => {
               value={password}
               type="password"
               placeholder="Your Password"
-              className="border border-gray-200 rounded w-full p-2 mt-1 outline-primary"
+              className="border border-gray-200 rounded w-full p-2 mt-1 outline-primary placeholder-gray-300"
               required
             />
           </div>
