@@ -1,3 +1,4 @@
+// Client/src/components/seller/SellerLogin.jsx
 import React, { useEffect, useState } from "react";
 import { useAppContext } from "../../context/AppContext";
 import Button from "../Button";
