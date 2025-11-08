@@ -16,6 +16,12 @@ const Navbar = () => {
     setIsSeller,
     showUserLogin,
     setShowUserLogin,
+    products,
+    currency,
+    addToCart,
+    updateCartItem,
+    removeFromCart,
+    cartItems,
   } = useAppContext();
 
   const logout = async () => {
@@ -100,7 +106,7 @@ const Navbar = () => {
         )} */}
 
         {!user ? (
-          <Button text="Login" />
+          <Button text="Login" variant="primary" />
         ) : (
           <div className="relative group hover:cursor-pointer">
             <img src={assets.profile_icon} alt="Profile" className="w-10" />
@@ -175,6 +181,7 @@ const Navbar = () => {
                 setOpen(false);
                 setShowUserLogin(true);
               }}
+              variant="primary"
             />
           ) : (
             // <button
@@ -184,7 +191,7 @@ const Navbar = () => {
             //   Logout
             // </button>
 
-            <Button onClick={logout} text="Logout" />
+            <Button text="Logout" onClick={logout} variant="primary" />
           )}
         </div>
       )}
