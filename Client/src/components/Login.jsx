@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useAppContext } from "../context/AppContext";
 import Button from "./Button";
+import Title from "./Title";
 
 const Login = () => {
   const [state, setState] = useState("login");
@@ -48,10 +49,12 @@ const Login = () => {
         onClick={(e) => e.stopPropagation()}
         className="flex flex-col gap-4 m-auto items-start p-8 py-12 w-80 sm:w-[352px] text-black rounded-lg shadow-xl border border-gray-200 bg-white"
       >
-        <p className="text-2xl font-medium m-auto">
-          <span className="text-primary">User</span>{" "}
-          {state === "login" ? "Login" : "Sign Up"}
-        </p>
+        <div className="w-full flex justify-center">
+          <Title
+            text1={"User"}
+            text2={state === "login" ? "Login" : "Sign Up"}
+          />
+        </div>
         {state === "register" && (
           <div className="w-full">
             <p>Name</p>
