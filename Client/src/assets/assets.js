@@ -123,7 +123,7 @@ export const assets = {
 
 export const categories = [
   {
-    text: "Organic veggies",
+    text: "Organic Veggies",
     path: "Vegetables",
     image: organic_vegitable_image,
     bgColor: "#FEF6DA",
