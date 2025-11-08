@@ -12,7 +12,7 @@ const NewsLetter = () => {
       </p>
 
       <form className="flex w-full max-w-2xl">
-        <div className="flex w-full border border-gray-300 rounded-md transition hover:rounded-full overflow-hidden">
+        <div className="flex w-full border border-gray-200 rounded-md transition hover:rounded-full overflow-hidden">
           <input
             className="flex-1 px-3 py-2 text-gray-500 outline-none "
             type="email"
