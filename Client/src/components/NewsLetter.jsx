@@ -14,7 +14,7 @@ const NewsLetter = () => {
       <form className="flex w-full max-w-2xl">
         <div className="flex w-full border border-gray-200 rounded-md transition hover:rounded-full overflow-hidden">
           <input
-            className="flex-1 px-3 py-2 text-gray-500 outline-none "
+            className="flex-1 px-3 py-2 text-gray-500 outline-none placeholder-gray-300"
             type="email"
             placeholder="Enter your email id"
             required
