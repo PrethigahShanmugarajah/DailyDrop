@@ -79,7 +79,10 @@ const Navbar = () => {
 
         {/* {!user ? (
           <button
-            onClick={() => setShowUserLogin(true)}
+            onClick={() => {
+              setOpen(false);
+              setShowUserLogin(true);
+            }}
             className="cursor-pointer px-8 py-2 bg-primary hover:bg-primary-dull transition text-white rounded-md hover:rounded-full"
           >
             Login
@@ -106,7 +109,14 @@ const Navbar = () => {
         )} */}
 
         {!user ? (
-          <Button text="Login" variant="primary" />
+          <Button
+            text="Login"
+            onClick={() => {
+              setOpen(false);
+              setShowUserLogin(true);
+            }}
+            variant="primary"
+          />
         ) : (
           <div className="relative group hover:cursor-pointer">
             <img src={assets.profile_icon} alt="Profile" className="w-10" />
