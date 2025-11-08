@@ -1,3 +1,4 @@
+// Client/src/pages/ProductDetails.jsx
 import React, { useEffect, useState } from "react";
 import { useAppContext } from "../context/AppContext";
 import { Link, useParams } from "react-router-dom";
@@ -24,6 +25,8 @@ const ProductDetails = () => {
     cartItems,
     searchQuery,
     setSearchQuery,
+    getCartCount,
+    getCartAmount,
   } = useAppContext();
   const { id } = useParams();
   const [relatedProducts, setRelatedProducts] = useState([]);
