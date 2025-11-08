@@ -19,6 +19,10 @@ const BestSeller = () => {
     updateCartItem,
     removeFromCart,
     cartItems,
+    searchQuery,
+    setSearchQuery,
+    getCartCount,
+    getCartAmount,
   } = useAppContext();
 
   return (
