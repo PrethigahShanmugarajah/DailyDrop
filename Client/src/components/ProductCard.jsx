@@ -19,6 +19,10 @@ const ProductCard = ({ product }) => {
     updateCartItem,
     removeFromCart,
     cartItems,
+    searchQuery,
+    setSearchQuery,
+    getCartCount,
+    getCartAmount,
   } = useAppContext();
 
   return (
