@@ -1,3 +1,4 @@
+// Client/src/pages/AllProducts.jsx
 import React, { useEffect, useState } from "react";
 import Title from "../components/Title";
 import { useAppContext } from "../context/AppContext";
@@ -20,6 +21,8 @@ const AllProducts = () => {
     cartItems,
     searchQuery,
     setSearchQuery,
+    getCartCount,
+    getCartAmount,
   } = useAppContext();
 
   const [filteredProducts, setFilteredProducts] = useState([]);
