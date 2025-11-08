@@ -1,0 +1,56 @@
+import React, { useEffect, useState } from "react";
+import Title from "../components/Title";
+import { useAppContext } from "../context/AppContext";
+import ProductCard from "../components/ProductCard";
+
+const AllProducts = () => {
+  const {
+    navigate,
+    user,
+    setUser,
+    isSeller,
+    setIsSeller,
+    showUserLogin,
+    setShowUserLogin,
+    products,
+    currency,
+    addToCart,
+    updateCartItem,
+    removeFromCart,
+    cartItems,
+    searchQuery,
+    setSearchQuery,
+  } = useAppContext();
+
+  const [filteredProducts, setFilteredProducts] = useState([]);
+
+  useEffect(() => {
+    if (searchQuery.length > 0) {
+      setFilteredProducts(
+        products.filter((product) =>
+          product.name.toLowerCase().includes(searchQuery.toLowerCase())
+        )
+      );
+    } else {
+      setFilteredProducts(products);
+    }
+  }, [products, searchQuery]);
+
+  return (
+    <div className="mt-16 flex flex-col">
+      <div className="flex flex-col items-end w-max">
+        <Title text1={"All"} text2={"Products"} />
+      </div>
+
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 md:gap-6 lg:grid-cols-5 mt-6">
+        {filteredProducts
+          .filter((product) => product.inStock)
+          .map((product, index) => (
+            <ProductCard key={index} product={product} />
+          ))}
+      </div>
+    </div>
+  );
+};
+
+export default AllProducts;
