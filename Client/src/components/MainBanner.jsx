@@ -60,15 +60,11 @@ const MainBanner = () => {
           <Button
             text={
               <span className="flex items-center gap-2">
-                Shop Now{" "}
-                <ArrowRight
-                  className="md:hidden transition group-focus:translate-x-1 text-white size-5"
-                  size={16}
-                />
+                Shop Now <ArrowRight className="md:hidden text-white size-5" />
               </span>
             }
             onClick={() => navigate("/products")}
-            className="px-7 md:px-9 py-3"
+            className="px-7 md:px-9"
             variant="primary"
           />
 
@@ -88,16 +84,12 @@ const MainBanner = () => {
           <Button
             text={
               <span className="flex items-center gap-2">
-                Explore deals{" "}
-                <ArrowRight
-                  className="transition group-hover:translate-x-1 text-black"
-                  size={16}
-                />
+                Explore deals <ArrowRight className="text-black size-5" />
               </span>
             }
             onClick={() => navigate("/products")}
             type="secondary"
-            className="hidden md:flex px-9 py-3"
+            className="hidden md:flex px-7"
             variant="text"
           />
         </div>
