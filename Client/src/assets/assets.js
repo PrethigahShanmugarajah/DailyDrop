@@ -15,11 +15,15 @@ import upload_area from "./upload_area.png";
 import profile_icon from "./profile_icon.png";
 import menu_icon from "./menu_icon.svg";
 import delivery_truck_icon from "./delivery_truck_icon.svg";
+import Delivery_Truck from "./Delivery_Truck.png";
 import leaf_icon from "./leaf_icon.svg";
+import Leaf from "./Leaf.png";
 import coin_icon from "./coin_icon.svg";
+import Coin from "./Coin.png";
 import box_icon from "./box_icon.svg";
 import Box_Icon from "./Box_Icon.png";
 import trust_icon from "./trust_icon.svg";
+import Trust from "./Trust.png";
 import black_arrow_icon from "./black_arrow_icon.svg";
 import white_arrow_icon from "./white_arrow_icon.svg";
 import main_banner_bg from "./main_banner_bg.png";
@@ -27,28 +31,30 @@ import Main_Banner from "./Main_Banner.png";
 import main_banner_bg_sm from "./main_banner_bg_sm.png";
 import Main_Banner_Small from "./Main_Banner_Small.png";
 import bottom_banner_image from "./bottom_banner_image.png";
+import Bottom_Banner from "./Bottom_Banner.png";
 import bottom_banner_image_sm from "./bottom_banner_image_sm.png";
+import Bottom_Banner_Small from "./Bottom_Banner_Small.png";
 import add_address_iamge from "./add_address_image.svg";
-// import organic_vegitable_image from "./organic_vegitable_image.png";
-// import fresh_fruits_image from "./fresh_fruits_image.png";
-// import bottles_image from "./bottles_image.png";
+import organic_vegitable_image from "./organic_vegitable_image.png";
+import fresh_fruits_image from "./fresh_fruits_image.png";
+import bottles_image from "./bottles_image.png";
 import maggi_image from "./maggi_image.png";
-// import dairy_product_image from "./dairy_product_image.png";
-// import bakeries_image from "./bakeries_image.png";
-// import grain_image from "./grain_image.png";
+import dairy_product_image from "./dairy_product_image.png";
+import bakeries_image from "./bakeries_image.png";
+import grain_image from "./grain_image.png";
 
-import Fruits_Image from "./Fruits_Image.png";
-import Vegetables_Image from "./Vegetables_Image.png";
-import Dairy_Image from "./Dairy_Image.png";
-import Bakery_Image from "./Bakery_Image.png";
-import Meat_Seafood_Image from "./Meat_Seafood_Image.png";
-import Beverages_Image from "./Beverages_Image.png";
-import Snacks_Image from "./Snacks_Image.png";
-import Grains_Rice_Image from "./Grains_Rice_Image.png";
-import Oils_Sauces_Image from "./Oils_Sauces_Image.png";
-import Personal_Care_Image from "./Personal_Care_Image.png";
-import Instant_Food_Image from "./Instant_Food_Image.png";
-import Spices_Herbs_Image from "./Spices_Herbs_Image.png";
+// import Fruits_Image from "./Fruits_Image.png";
+// import Vegetables_Image from "./Vegetables_Image.png";
+// import Dairy_Image from "./Dairy_Image.png";
+// import Bakery_Image from "./Bakery_Image.png";
+// import Meat_Seafood_Image from "./Meat_Seafood_Image.png";
+// import Beverages_Image from "./Beverages_Image.png";
+// import Snacks_Image from "./Snacks_Image.png";
+// import Grains_Rice_Image from "./Grains_Rice_Image.png";
+// import Oils_Sauces_Image from "./Oils_Sauces_Image.png";
+// import Personal_Care_Image from "./Personal_Care_Image.png";
+// import Instant_Food_Image from "./Instant_Food_Image.png";
+// import Spices_Herbs_Image from "./Spices_Herbs_Image.png";
 
 import potato_image_1 from "./potato_image_1.png";
 import potato_image_2 from "./potato_image_2.png";
@@ -106,9 +112,13 @@ export const assets = {
   profile_icon,
   menu_icon,
   delivery_truck_icon,
+  Delivery_Truck,
   leaf_icon,
+  Leaf,
   coin_icon,
+  Coin,
   trust_icon,
+  Trust,
   black_arrow_icon,
   white_arrow_icon,
   main_banner_bg,
@@ -116,131 +126,133 @@ export const assets = {
   main_banner_bg_sm,
   Main_Banner_Small,
   bottom_banner_image,
+  Bottom_Banner,
   bottom_banner_image_sm,
+  Bottom_Banner_Small,
   add_address_iamge,
   box_icon,
   Box_Icon,
 };
 
-// export const categories = [
-//   {
-//     text: "Organic veggies",
-//     path: "Vegetables",
-//     image: organic_vegitable_image,
-//     bgColor: "#FEF6DA",
-//   },
-//   {
-//     text: "Fresh Fruits",
-//     path: "Fruits",
-//     image: fresh_fruits_image,
-//     bgColor: "#FEE0E0",
-//   },
-//   {
-//     text: "Cold Drinks",
-//     path: "Drinks",
-//     image: bottles_image,
-//     bgColor: "#F0F5DE",
-//   },
-//   {
-//     text: "Instant Food",
-//     path: "Instant",
-//     image: maggi_image,
-//     bgColor: "#E1F5EC",
-//   },
-//   {
-//     text: "Dairy Products",
-//     path: "Dairy",
-//     image: dairy_product_image,
-//     bgColor: "#FEE6CD",
-//   },
-//   {
-//     text: "Bakery & Breads",
-//     path: "Bakery",
-//     image: bakeries_image,
-//     bgColor: "#E0F6FE",
-//   },
-//   {
-//     text: "Grains & Cereals",
-//     path: "Grains",
-//     image: grain_image,
-//     bgColor: "#F1E3F9",
-//   },
-// ];
-
 export const categories = [
   {
-    text: "Fruits",
-    path: "Fruits",
-    image: Fruits_Image,
+    text: "Organic veggies",
+    path: "Vegetables",
+    image: organic_vegitable_image,
     bgColor: "#FEF6DA",
   },
   {
-    text: "Vegetables",
-    path: "Vegetables",
-    image: Vegetables_Image,
-    bgColor: "#DFF6E4",
+    text: "Fresh Fruits",
+    path: "Fruits",
+    image: fresh_fruits_image,
+    bgColor: "#FEE0E0",
   },
   {
-    text: "Dairy",
-    path: "Dairy",
-    image: Dairy_Image,
-    bgColor: "#E6F0FF",
-  },
-  {
-    text: "Bakery",
-    path: "Bakery",
-    image: Bakery_Image,
-    bgColor: "#FFF0F0",
-  },
-  {
-    text: "Meat & Seafood",
-    path: "Meat_Seafood",
-    image: Meat_Seafood_Image,
-    bgColor: "#FFE6E6",
-  },
-  {
-    text: "Beverages",
-    path: "Beverages",
-    image: Beverages_Image,
-    bgColor: "#FFF8E6",
-  },
-  {
-    text: "Snacks",
-    path: "Snacks",
-    image: Snacks_Image,
-    bgColor: "#FFF0D6",
-  },
-  {
-    text: "Grains & Rice",
-    path: "Grains_Rice",
-    image: Grains_Rice_Image,
-    bgColor: "#FFF6E6",
-  },
-  {
-    text: "Oils & Sauces",
-    path: "Oils_Sauces",
-    image: Oils_Sauces_Image,
-    bgColor: "#FFF3E6",
-  },
-  {
-    text: "Personal Care",
-    path: "Personal_Care",
-    image: Personal_Care_Image,
-    bgColor: "#E6F6FF",
+    text: "Cold Drinks",
+    path: "Drinks",
+    image: bottles_image,
+    bgColor: "#F0F5DE",
   },
   {
     text: "Instant Food",
-    path: "Instant_Food",
-    image: Instant_Food_Image,
+    path: "Instant",
+    image: maggi_image,
     bgColor: "#E1F5EC",
   },
   {
-    text: "Spices & Herbs",
-    path: "Spices_Herbs",
-    image: Spices_Herbs_Image,
-    bgColor: "#FFF2E6",
+    text: "Dairy Products",
+    path: "Dairy",
+    image: dairy_product_image,
+    bgColor: "#FEE6CD",
+  },
+  {
+    text: "Bakery & Breads",
+    path: "Bakery",
+    image: bakeries_image,
+    bgColor: "#E0F6FE",
+  },
+  {
+    text: "Grains & Cereals",
+    path: "Grains",
+    image: grain_image,
+    bgColor: "#F1E3F9",
   },
 ];
+
+// export const categories = [
+//   {
+//     text: "Fruits",
+//     path: "Fruits",
+//     image: Fruits_Image,
+//     bgColor: "#FEF6DA",
+//   },
+//   {
+//     text: "Vegetables",
+//     path: "Vegetables",
+//     image: Vegetables_Image,
+//     bgColor: "#DFF6E4",
+//   },
+//   {
+//     text: "Dairy",
+//     path: "Dairy",
+//     image: Dairy_Image,
+//     bgColor: "#E6F0FF",
+//   },
+//   {
+//     text: "Bakery",
+//     path: "Bakery",
+//     image: Bakery_Image,
+//     bgColor: "#FFF0F0",
+//   },
+//   {
+//     text: "Meat & Seafood",
+//     path: "Meat_Seafood",
+//     image: Meat_Seafood_Image,
+//     bgColor: "#FFE6E6",
+//   },
+//   {
+//     text: "Beverages",
+//     path: "Beverages",
+//     image: Beverages_Image,
+//     bgColor: "#FFF8E6",
+//   },
+//   {
+//     text: "Snacks",
+//     path: "Snacks",
+//     image: Snacks_Image,
+//     bgColor: "#FFF0D6",
+//   },
+//   {
+//     text: "Grains & Rice",
+//     path: "Grains_Rice",
+//     image: Grains_Rice_Image,
+//     bgColor: "#FFF6E6",
+//   },
+//   {
+//     text: "Oils & Sauces",
+//     path: "Oils_Sauces",
+//     image: Oils_Sauces_Image,
+//     bgColor: "#FFF3E6",
+//   },
+//   {
+//     text: "Personal Care",
+//     path: "Personal_Care",
+//     image: Personal_Care_Image,
+//     bgColor: "#E6F6FF",
+//   },
+//   {
+//     text: "Instant Food",
+//     path: "Instant_Food",
+//     image: Instant_Food_Image,
+//     bgColor: "#E1F5EC",
+//   },
+//   {
+//     text: "Spices & Herbs",
+//     path: "Spices_Herbs",
+//     image: Spices_Herbs_Image,
+//     bgColor: "#FFF2E6",
+//   },
+// ];
 
 export const footerLinks = [
   {
@@ -276,22 +288,22 @@ export const footerLinks = [
 
 export const features = [
   {
-    icon: delivery_truck_icon,
+    icon: Delivery_Truck,
     title: "Fastest Delivery",
     description: "Groceries delivered in under 30 minutes.",
   },
   {
-    icon: leaf_icon,
+    icon: Leaf,
     title: "Freshness Guaranteed",
     description: "Fresh produce straight from the source.",
   },
   {
-    icon: coin_icon,
+    icon: Coin,
     title: "Affordable Prices",
     description: "Quality groceries at unbeatable prices.",
   },
   {
-    icon: trust_icon,
+    icon: Trust,
     title: "Trusted by Thousands",
     description: "Loved by 10,000+ happy customers.",
   },
