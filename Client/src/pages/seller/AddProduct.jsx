@@ -24,7 +24,7 @@ const AddProduct = () => {
         className="md:p-10 p-4 space-y-5 max-w-lg"
       >
         <Title text1={"Add"} text2={"Product"} />
-        <div className="mt-6 ">
+        <div className="mt-6">
           <p className="text-base font-medium ">Product Image</p>
           <div className="flex flex-wrap items-center gap-3 mt-2">
             {/* {Array(4)
