@@ -1,9 +1,28 @@
+// Client/src/components/MainBanner.jsx
 import React from "react";
 import { assets } from "../assets/assets";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
+import { useAppContext } from "../context/AppContext";
+import Button from "./Button";
 
 const MainBanner = () => {
+  const {
+    navigate,
+    user,
+    setUser,
+    isSeller,
+    setIsSeller,
+    showUserLogin,
+    setShowUserLogin,
+    products,
+    currency,
+    addToCart,
+    updateCartItem,
+    removeFromCart,
+    cartItems,
+  } = useAppContext();
+
   return (
     <div className="relative">
       <img
@@ -24,32 +43,63 @@ const MainBanner = () => {
         </h1>
 
         <div className="flex items-center mt-6 font-medium">
-          <Link
+          {/* <Link
             to={"/products"}
             className="group flex items-center gap-2 px-7 md:px-9 py-3 bg-primary hover:bg-primary-dull transition
          rounded text-white cursor-pointer"
           >
-            Show Now
-            {/* <img
+            Shop Now
+            <img
               className="md:hidden transition group-focus:translate-x-1"
               src={assets.white_arrow_icon}
               alt="Arrow"
-            /> */}
+            />
             <ArrowRight className="md:hidden transition group-focus:translate-x-1 text-white size-5" />
-          </Link>
+          </Link> */}
 
-          <Link
+          <Button
+            text={
+              <span className="flex items-center gap-2">
+                Shop Now{" "}
+                <ArrowRight
+                  className="md:hidden transition group-focus:translate-x-1 text-white size-5"
+                  size={16}
+                />
+              </span>
+            }
+            onClick={() => navigate("/products")}
+            className="px-7 md:px-9 py-3"
+            variant="primary"
+          />
+
+          {/* <Link
             to={"/products"}
             className="group hidden md:flex items-center gap-2 px-9 py-3 cursor-pointer"
           >
             Explore deals
-            {/* <img
+            <img
               className="transition group-hover:translate-x-1"
               src={assets.black_arrow_icon}
               alt="Arrow"
-            /> */}
+            />
             <ArrowRight className="transition group-hover:translate-x-1 text-black size-5" />
-          </Link>
+          </Link> */}
+
+          <Button
+            text={
+              <span className="flex items-center gap-2">
+                Explore deals{" "}
+                <ArrowRight
+                  className="transition group-hover:translate-x-1 text-black"
+                  size={16}
+                />
+              </span>
+            }
+            onClick={() => navigate("/products")}
+            type="secondary"
+            className="hidden md:flex px-9 py-3"
+            variant="text"
+          />
         </div>
       </div>
     </div>
