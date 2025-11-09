@@ -29,7 +29,7 @@ export const sellerLogin = async (req, res) => {
   } catch (error) {
     console.error("Login Seller Error:", error.message);
 
-    return res.status(500).jsonn({
+    return res.status(500).json({
       success: false,
       message: `Login Seller Error: ${error.message}`,
     });
