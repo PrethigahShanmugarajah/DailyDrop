@@ -1,4 +1,4 @@
-// Server/controllers/userController.jsy
+// Server/controllers/userController.js
 import User from "../models/User.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
@@ -128,6 +128,23 @@ export const login = async (req, res) => {
     return res.status(500).jsonn({
       success: false,
       message: `Login User Error: ${error.message}`,
+    });
+  }
+};
+
+/* -------- CHECK AUTH -------- */
+export const isAuth = async (req, res) => {
+  try {
+    // const { userId } = req.body;
+    const userId = req.userId;
+    const user = await User.findById(userId).select("-password");
+    return res.status(200).json({ success: true, user });
+  } catch (error) {
+    console.error("Check Auth Error:", error.message);
+
+    return res.status(500).json({
+      success: false,
+      message: `Check Auth Error: ${error.message}`,
     });
   }
 };
