@@ -132,7 +132,7 @@ export const login = async (req, res) => {
   }
 };
 
-/* -------- CHECK AUTH -------- */
+/* -------- CHECK AUTH USER -------- */
 export const isAuth = async (req, res) => {
   try {
     // const { userId } = req.body;
@@ -140,11 +140,11 @@ export const isAuth = async (req, res) => {
     const user = await User.findById(userId).select("-password");
     return res.status(200).json({ success: true, user });
   } catch (error) {
-    console.error("Check Auth Error:", error.message);
+    console.error("Check Auth User Error:", error.message);
 
     return res.status(500).json({
       success: false,
-      message: `Check Auth Error: ${error.message}`,
+      message: `Check Auth User Error: ${error.message}`,
     });
   }
 };
