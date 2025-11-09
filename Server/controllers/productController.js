@@ -72,3 +72,52 @@ export const productById = async (req, res) => {
     });
   }
 };
+
+/* -------- CHANGE PRODUCT INSTOCK -------- */
+// export const changeStock = async (req, res) => {
+//   try {
+//     const { id, inStock } = req.body;
+//     await Product.findByIdAndUpdate(id, { inStock });
+//     res.json({ success: true, message: "Stock Updated" });
+//   } catch (error) {
+//     console.error("Change Product inStock Error:", error.message);
+
+//     return res.status(500).json({
+//       success: false,
+//       message: `Change Product inStock Error: ${error.message}`,
+//     });
+//   }
+// };
+
+/* -------- CHANGE PRODUCT INSTOCK -------- */
+export const changeStock = async (req, res) => {
+  try {
+    const { id, inStock } = req.body;
+
+    const product = await Product.findByIdAndUpdate(
+      id,
+      { inStock },
+      { new: true }
+    );
+
+    if (!product) {
+      return res.status(404).json({
+        success: false,
+        message: "Product not found",
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: "Stock updated successfully",
+      product,
+    });
+  } catch (error) {
+    console.error("Change Product inStock Error:", error.message);
+
+    return res.status(500).json({
+      success: false,
+      message: `Change Product inStock Error: ${error.message}`,
+    });
+  }
+};
