@@ -58,7 +58,7 @@ export const register = async (req, res) => {
   } catch (error) {
     console.error("Register User Error:", error.message);
 
-    return res.status(500).jsonn({
+    return res.status(500).json({
       success: false,
       message: `Register User Error: ${error.message}`,
     });
@@ -125,7 +125,7 @@ export const login = async (req, res) => {
   } catch (error) {
     console.error("Login User Error:", error.message);
 
-    return res.status(500).jsonn({
+    return res.status(500).json({
       success: false,
       message: `Login User Error: ${error.message}`,
     });
