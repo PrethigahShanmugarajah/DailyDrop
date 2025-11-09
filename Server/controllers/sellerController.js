@@ -35,3 +35,17 @@ export const sellerLogin = async (req, res) => {
     });
   }
 };
+
+/* -------- CHECK AUTH SELLER -------- */
+export const isSellerAuth = async (req, res) => {
+  try {
+    return res.status(200).json({ success: true });
+  } catch (error) {
+    console.error("Check Auth Seller Error:", error.message);
+
+    return res.status(500).json({
+      success: false,
+      message: `Check Auth User Seller Error: ${error.message}`,
+    });
+  }
+};
