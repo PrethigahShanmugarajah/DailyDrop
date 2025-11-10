@@ -130,10 +130,8 @@ VITE_BACKEND_URL=
 
 ## 🧠 References
 
-📺 [YouTube Reference](https://youtu.be/PaQX0pktLnw?si=FKl647JcK365TRJo)
-
-This project is inspired by modern full-stack applications with **MongoDB + Cloudinary** integration for real-world performance.
-It follows best practices for authentication, data handling, and deployment workflow.
+This project is based on the YouTube tutorial: **Full Stack Grocery Delivery Website Using MERN Stack**
+[https://youtu.be/PaQX0pktLnw?si=bZ-zAtEgmLFj6bq\_](https://youtu.be/PaQX0pktLnw?si=bZ-zAtEgmLFj6bq_)
 
 ---
 
@@ -145,21 +143,8 @@ It follows best practices for authentication, data handling, and deployment work
 
 ## 👨‍💻 Author
 
-**Prethigah Shanmugarajah**
+**Prethigah Shanmugarajah(2020/2021)**
 Department of Software Engineering, Faculty of Computing
 Sabaragamuwa University of Sri Lanka
-
----
-
-## 🏁 Summary
-
-DailyDrop demonstrates a complete **Full Stack Web Application** with:
-
-- Secure JWT authentication for users and sellers/admins
-- Dynamic product, cart, and order management
-- Cloudinary image upload integration
-- Role-based portals and dashboard features
-
-It provides a real-world **Grocery Delivery System** experience for both users and sellers/admins.
 
 ---
