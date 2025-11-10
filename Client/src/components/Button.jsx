@@ -1,4 +1,3 @@
-// Client/src/components/Button.jsx
 import React from "react";
 
 const Button = ({ text, onClick, className, type, variant }) => {

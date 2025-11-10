@@ -1,4 +1,4 @@
-/* ---------------- Format date as DD/MM/YYYY HH:MM:SS AM/PM ---------------- */
+/* -------- Format date as DD/MM/YYYY HH:MM:SS AM/PM -------- */
 export const formatDate = (dateString) => {
   if (!dateString) return "";
   const date = new Date(dateString);

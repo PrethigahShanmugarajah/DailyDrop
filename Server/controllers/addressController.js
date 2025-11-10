@@ -1,11 +1,10 @@
-// Server/controllers/addressController.js
 import Address from "../models/Address.js";
 
 /* -------- ADD ADDRESS -------- */
 export const addAddress = async (req, res) => {
   try {
-    const { address, userId } = req.body;
-    await Address.create({ ...address, userId });
+    const { address } = req.body;
+    await Address.create({ ...address, userId: req.userId });
     return res
       .status(200)
       .json({ success: true, message: "Address Added Successfully" });
@@ -22,8 +21,7 @@ export const addAddress = async (req, res) => {
 /* -------- GET ADDRESS -------- */
 export const getAddress = async (req, res) => {
   try {
-    const { userId } = req.body;
-    const address = await Address.find({ userId });
+    const address = await Address.find({ userId: req.userId });
     return res.status(200).json({ success: true, address });
   } catch (error) {
     console.error("Get Address Error:", error.message);

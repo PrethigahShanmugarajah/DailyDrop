@@ -1,4 +1,3 @@
-// Client/src/components/Categories.jsx
 import React from "react";
 import { assets, categories } from "../assets/assets";
 import { useAppContext } from "../context/AppContext";

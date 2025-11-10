@@ -1,4 +1,3 @@
-// Server/controllers/sellerController.js
 import jwt from "jsonwebtoken";
 
 /* -------- LOGIN SELLER -------- */

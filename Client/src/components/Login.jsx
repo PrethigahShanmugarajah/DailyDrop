@@ -1,8 +1,8 @@
-// Client/src/components/Login.jsx
 import React, { useState } from "react";
 import { useAppContext } from "../context/AppContext";
 import Button from "./Button";
 import Title from "./Title";
+import { notify } from "./ToastProvider";
 
 const Login = () => {
   const [state, setState] = useState("login");
@@ -10,15 +10,29 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const { setUser, setShowUserLogin } = useAppContext();
+  const { setUser, setShowUserLogin, axios, navigate } = useAppContext();
 
   const onSubmitHandler = async (event) => {
-    event.preventDefault();
-    setUser({
-      email: "testemail@email.com",
-      name: "Test Name",
-    });
-    setShowUserLogin(false);
+    try {
+      event.preventDefault();
+
+      const { data } = await axios.post(`/api/user/${state}`, {
+        name,
+        email,
+        password,
+      });
+
+      if (data.success) {
+        navigate("/");
+        setUser(data.user);
+        setShowUserLogin(false);
+        notify.success(data.message);
+      } else {
+        notify.error(data.message);
+      }
+    } catch (error) {
+      notify.error(error.message);
+    }
   };
 
   return (

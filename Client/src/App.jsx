@@ -1,4 +1,3 @@
-// Client/src/App.jsx
 import React from "react";
 import Navbar from "./components/Navbar";
 import { Route, Routes, useLocation } from "react-router-dom";
@@ -18,6 +17,8 @@ import SellerLayout from "./pages/seller/SellerLayout";
 import AddProduct from "./pages/seller/AddProduct";
 import ProductList from "./pages/seller/ProductList";
 import Orders from "./pages/seller/Orders";
+import ToastProvider from "./components/ToastProvider";
+import Loading from "./components/Loading";
 
 const App = () => {
   const isSellerPath = useLocation().pathname.includes("seller");
@@ -29,7 +30,7 @@ const App = () => {
       {isSellerPath ? null : <Navbar />}
       {showUserLogin ? <Login /> : null}
 
-      <Toaster />
+      <ToastProvider />
       <div
         className={`${isSellerPath ? " " : "px-6 md:px-16 lg:px-24 xl:px-32"} `}
       >
@@ -41,6 +42,7 @@ const App = () => {
           <Route path="/cart" element={<Cart />} />
           <Route path="/add-address" element={<AddAddress />} />
           <Route path="/my-orders" element={<MyOrders />} />
+          <Route path="/loader" element={<Loading />} />
           <Route
             path="/seller"
             element={isSeller ? <SellerLayout /> : <SellerLogin />}

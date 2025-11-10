@@ -102,11 +102,11 @@ Create a `.env` file inside the **Server/** directory:
 
 ```
 MONGODB_URI=
-JWT_SECRET=DailyDrop@2025
-NODE_ENV=development
+JWT_SECRET=
+NODE_ENV=
 
-SELLER_EMAIL=admin@example.com
-SELLER_PASSWORD=DailyDrop@123
+SELLER_EMAIL=
+SELLER_PASSWORD=
 
 CLOUDINARY_CLOUD_NAME=
 CLOUDINARY_API_KEY=

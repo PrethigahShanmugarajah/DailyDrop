@@ -1,4 +1,3 @@
-// Client/src/components/ProductCard.jsx
 import React from "react";
 import { assets } from "../assets/assets";
 import { useAppContext } from "../context/AppContext";
@@ -32,17 +31,6 @@ const ProductCard = ({ product }) => {
             {product.name}
           </p>
           <div className="flex items-center gap-0.5">
-            {/* {Array(5)
-              .fill("")
-              .map((_, i) => (
-                <img
-                  key={i}
-                  className="md:w-3.5 w-3.5"
-                  src={i < 4 ? assets.star_icon : assets.star_dull_icon}
-                  alt="Star"
-                />
-              ))} */}
-
             {Array(5)
               .fill("")
               .map((_, i) =>
@@ -77,7 +65,6 @@ const ProductCard = ({ product }) => {
                   className="flex items-center justify-center gap-1 bg-primary/10 border border-primary/40 md:w-20 w-16 h-[34px] rounded cursor-pointer"
                   onClick={() => addToCart(product._id)}
                 >
-                  {/* <img src={assets.cart_icon} alt="Cart Icon" /> */}
                   <ShoppingCart size={15} className="text-primary" />
                   Add
                 </button>

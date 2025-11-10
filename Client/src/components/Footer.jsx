@@ -1,4 +1,3 @@
-// Client/src/components/Footer.jsx
 import React from "react";
 import { assets, footerLinks } from "../assets/assets";
 

@@ -1,9 +1,10 @@
-// Client/src/pages/seller/AddProduct .jsx
 import React, { useState } from "react";
 import { assets, categories } from "../../assets/assets";
 import Button from "../../components/Button";
 import { ImagePlus } from "lucide-react";
 import Title from "../../components/Title";
+import { useAppContext } from "../../context/AppContext";
+import { notify } from "../../components/ToastProvider";
 
 const AddProduct = () => {
   const [files, setFiles] = useState([]);
@@ -13,8 +14,42 @@ const AddProduct = () => {
   const [price, setPrice] = useState("");
   const [offerPrice, setOfferPrice] = useState("");
 
+  const { axios } = useAppContext();
+
   const onSubmitHandler = async (event) => {
-    event.preventDefault();
+    try {
+      event.preventDefault();
+
+      const productData = {
+        name,
+        description: description.split("\n"),
+        category,
+        price,
+        offerPrice,
+      };
+
+      const formData = new FormData();
+      formData.append("productData", JSON.stringify(productData));
+      for (let i = 0; i < files.length; i++) {
+        formData.append("images", files[i]);
+      }
+
+      const { data } = await axios.post("/api/product/add", formData);
+
+      if (data.success) {
+        notify.success(data.message);
+        setName("");
+        setDescription("");
+        setCategory("");
+        setPrice("");
+        setOfferPrice("");
+        setFiles("");
+      } else {
+        notify.error(data.message);
+      }
+    } catch (error) {
+      notify.error(error.message);
+    }
   };
 
   return (
@@ -27,35 +62,6 @@ const AddProduct = () => {
         <div className="mt-6">
           <p className="text-base font-medium ">Product Image</p>
           <div className="flex flex-wrap items-center gap-3 mt-2">
-            {/* {Array(4)
-              .fill("")
-              .map((_, index) => (
-                <label key={index} htmlFor={`image${index}`}>
-                  <input
-                    onChange={(e) => {
-                      const updatedFiles = [...files];
-                      updatedFiles[index] = e.target.files[0];
-                      setFiles(updatedFiles);
-                    }}
-                    accept="image/*"
-                    type="file"
-                    id={`image${index}`}
-                    hidden
-                  />
-                  <img
-                    className="max-w-24 cursor-pointer"
-                    src={
-                      files[index]
-                        ? URL.createObjectURL(files[index])
-                        : assets.upload_area
-                    }
-                    alt="Upload Area"
-                    width={100}
-                    height={100}
-                  />
-                </label>
-              ))} */}
-
             {Array(4)
               .fill("")
               .map((_, index) => (
@@ -85,7 +91,7 @@ const AddProduct = () => {
                       height={100}
                     />
                   ) : (
-                    <div className="flex items-center justify-center w-24 h-24 rounded text-black ">
+                    <div className="flex items-center justify-center w-24 h-24 rounded text-gray-300 hover:text-gray-400 ">
                       <ImagePlus size={100} />
                     </div>
                   )}

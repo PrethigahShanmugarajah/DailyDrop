@@ -1,26 +1,10 @@
-// Server/controllers/cartController.js
 import User from "../models/User.js";
-
-/* -------- UPDATE USER CART DATA -------- */
-// export const updateCart = async (req, res) => {
-//   try {
-//     const { userId, cartItems } = req.body;
-//     await User.findByIdAndUpdate(userId, { cartItems });
-//     res.json({ success: true, message: "Cart Updated" });
-//   } catch (error) {
-//     console.error("Update User Cart Data Error:", error.message);
-
-//     return res.status(500).json({
-//       success: false,
-//       message: `Update User Cart Data Error: ${error.message}`,
-//     });
-//   }
-// };
 
 /* -------- UPDATE USER CART DATA -------- */
 export const updateCart = async (req, res) => {
   try {
-    const { userId, cartItems } = req.body;
+    const userId = req.userId;
+    const { cartItems } = req.body;
 
     const user = await User.findByIdAndUpdate(
       userId,
@@ -42,7 +26,6 @@ export const updateCart = async (req, res) => {
     });
   } catch (error) {
     console.error("Update User Cart Data Error:", error.message);
-
     return res.status(500).json({
       success: false,
       message: `Update User Cart Data Error: ${error.message}`,

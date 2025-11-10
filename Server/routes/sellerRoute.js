@@ -1,4 +1,3 @@
-// Server/routes/sellerRoute.js
 import express from "express";
 import {
   isSellerAuth,

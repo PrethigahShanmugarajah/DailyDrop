@@ -1,10 +1,10 @@
-// Client/src/components/Navbar.jsx
 import React, { useEffect, useState } from "react";
 import Button from "./Button";
 import { NavLink } from "react-router-dom";
 import { assets } from "../assets/assets";
 import { useAppContext } from "../context/AppContext";
-import { Menu, Search, ShoppingCart } from "lucide-react";
+import { Menu, Search, ShoppingCart, UserCircle2Icon } from "lucide-react";
+import { notify } from "./ToastProvider";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -16,11 +16,22 @@ const Navbar = () => {
     searchQuery,
     setSearchQuery,
     getCartCount,
+    axios,
   } = useAppContext();
 
   const logout = async () => {
-    setUser(null);
-    navigate("/");
+    try {
+      const { data } = await axios.get("/api/user/logout");
+      if (data.success) {
+        notify.success(data.message);
+        setUser(null);
+        navigate("/");
+      } else {
+        notify.error(data.message);
+      }
+    } catch (error) {
+      notify.error(error.message);
+    }
   };
 
   useEffect(() => {
@@ -57,7 +68,6 @@ const Navbar = () => {
             placeholder="Search products"
           />
 
-          {/* <img src={assets.search_icon} alt="Search" className="w-4 h-4" /> */}
           <Search className="size-6 text-black" />
         </div>
 
@@ -65,12 +75,6 @@ const Navbar = () => {
           onClick={() => navigate("/cart")}
           className="relative cursor-pointer"
         >
-          {/* <img
-            src={assets.nav_cart_icon}
-            alt="Cart"
-            className="w-6 opacity-80"
-          /> */}
-
           <ShoppingCart className="size-6 text-black opacity-80" />
 
           <button className="absolute -top-2 -right-3 text-xs text-white bg-primary w-[18px] h-[18px] rounded-full">
@@ -120,7 +124,7 @@ const Navbar = () => {
           />
         ) : (
           <div className="relative group hover:cursor-pointer">
-            <img src={assets.profile_icon} alt="Profile" className="w-10" />
+            <UserCircle2Icon className="text-black w-10 h-10" />
             <ul className="hidden group-hover:block absolute top-10 right-0 bg-white shadow border border-gray-200 py-2.5 w-30 rounded-md text-sm z-40">
               <li
                 onClick={() => navigate("my-orders")}
@@ -145,12 +149,6 @@ const Navbar = () => {
           onClick={() => navigate("/cart")}
           className="relative cursor-pointer"
         >
-          {/* <img
-            src={assets.nav_cart_icon}
-            alt="Cart"
-            className="w-6 opacity-80"
-          /> */}
-
           <ShoppingCart className="size-6 text-black opacity-80" />
 
           <button className="absolute -top-2 -right-3 text-xs text-white bg-primary w-[18px] h-[18px] rounded-full">
@@ -162,8 +160,6 @@ const Navbar = () => {
           onClick={() => (open ? setOpen(false) : setOpen(true))}
           aria-label="Menu"
         >
-          {/* <img src={assets.menu_icon} alt="Menu" /> */}
-
           <Menu className="text-black cursor-pointer" />
         </button>
       </div>

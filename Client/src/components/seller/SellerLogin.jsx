@@ -1,18 +1,33 @@
-// Client/src/components/seller/SellerLogin.jsx
 import React, { useEffect, useState } from "react";
 import { useAppContext } from "../../context/AppContext";
 import Button from "../Button";
 import Title from "../Title";
+import { notify } from "../ToastProvider";
 
 const SellerLogin = () => {
-  const { navigate, isSeller, setIsSeller } = useAppContext();
+  const { navigate, isSeller, setIsSeller, axios } = useAppContext();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const onSubmitHandler = async (event) => {
-    event.preventDefault();
-    setIsSeller(true);
+    try {
+      event.preventDefault();
+      const { data } = await axios.post("/api/seller/login", {
+        email,
+        password,
+      });
+
+      if (data.success) {
+        setIsSeller(true);
+        navigate("/seller");
+        notify.success(data.message);
+      } else {
+        notify.error(data.message);
+      }
+    } catch (error) {
+      notify.error(error.message);
+    }
   };
 
   useEffect(() => {

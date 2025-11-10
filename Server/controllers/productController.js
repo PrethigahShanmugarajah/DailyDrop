@@ -1,4 +1,3 @@
-// Server/controllers/productController.js
 import { v2 as cloudinary } from "cloudinary";
 import Product from "../models/Product.js";
 
@@ -72,22 +71,6 @@ export const productById = async (req, res) => {
     });
   }
 };
-
-/* -------- CHANGE PRODUCT INSTOCK -------- */
-// export const changeStock = async (req, res) => {
-//   try {
-//     const { id, inStock } = req.body;
-//     await Product.findByIdAndUpdate(id, { inStock });
-//     res.json({ success: true, message: "Stock Updated" });
-//   } catch (error) {
-//     console.error("Change Product inStock Error:", error.message);
-
-//     return res.status(500).json({
-//       success: false,
-//       message: `Change Product inStock Error: ${error.message}`,
-//     });
-//   }
-// };
 
 /* -------- CHANGE PRODUCT INSTOCK -------- */
 export const changeStock = async (req, res) => {

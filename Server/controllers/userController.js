@@ -1,4 +1,3 @@
-// Server/controllers/userController.js
 import User from "../models/User.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
@@ -7,12 +6,6 @@ import jwt from "jsonwebtoken";
 export const register = async (req, res) => {
   try {
     const { name, email, password } = req.body;
-
-    // if (!name || !email || !password) {
-    //   return res
-    //     .status(400)
-    //     .json({ success: false, message: "Missing Details" });
-    // }
 
     const missingFields = [];
     if (!name) missingFields.push("name");
@@ -69,12 +62,6 @@ export const register = async (req, res) => {
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
-
-    // if (!email || !password)
-    //   return res.status(400).json({
-    //     success: false,
-    //     message: "Email and Password are required",
-    //   });
 
     if (!email || !password) {
       const missingFields = [];
@@ -135,7 +122,6 @@ export const login = async (req, res) => {
 /* -------- CHECK AUTH USER -------- */
 export const isAuth = async (req, res) => {
   try {
-    // const { userId } = req.body;
     const userId = req.userId;
     const user = await User.findById(userId).select("-password");
     return res.status(200).json({ success: true, user });

@@ -1,10 +1,9 @@
-// Client/src/pages/Cart.jsx
 import React, { useEffect, useState } from "react";
 import { useAppContext } from "../context/AppContext";
-import { assets, dummyAddress } from "../assets/assets";
 import Title from "../components/Title";
 import Button from "../components/Button";
-import { ArrowLeft, XCircle } from "lucide-react";
+import { ArrowLeft, User, XCircle } from "lucide-react";
+import { notify } from "../components/ToastProvider";
 
 const Cart = () => {
   const {
@@ -16,11 +15,14 @@ const Cart = () => {
     cartItems,
     getCartCount,
     getCartAmount,
+    axios,
+    user,
+    setCartItems,
   } = useAppContext();
   const [cartArray, setCartArray] = useState([]);
-  const [addresses, setAddresses] = useState(dummyAddress);
+  const [addresses, setAddresses] = useState([]);
   const [showAddress, setShowAddress] = useState(false);
-  const [selectedAddress, setSelectedAddress] = useState(dummyAddress[0]);
+  const [selectedAddress, setSelectedAddress] = useState(null);
   const [paymentOption, setPaymentOption] = useState("COD");
 
   const getCart = () => {
@@ -33,13 +35,79 @@ const Cart = () => {
     setCartArray(tempArray);
   };
 
-  const placeOrder = async () => {};
+  const getUserAddress = async () => {
+    try {
+      const { data } = await axios.get("/api/address/get");
+      if (data.success) {
+        setAddresses(data.address);
+        if (data.address.length > 0) {
+          setSelectedAddress(data.address[0]);
+        }
+      } else {
+        notify.error(data.message);
+      }
+    } catch (error) {
+      notify.error(error.message);
+    }
+  };
+
+  const placeOrder = async () => {
+    try {
+      if (!selectedAddress) {
+        return notify.error("Please Select an Address");
+      }
+
+      /* ---- PLACE ORDER WITH COD ---- */
+      if (paymentOption === "COD") {
+        const { data } = await axios.post("/api/order/cod", {
+          userId: user._id,
+          items: cartArray.map((item) => ({
+            product: item._id,
+            quantity: item.quantity,
+          })),
+          address: selectedAddress._id,
+        });
+
+        if (data.success) {
+          notify.success(data.message);
+          setCartItems({});
+          navigate("my-orders");
+        } else {
+          notify.error(data.message);
+        }
+      } else {
+        /* ---- PLACE ORDER WITH STRIPE ---- */
+        const { data } = await axios.post("/api/order/stripe", {
+          userId: user._id,
+          items: cartArray.map((item) => ({
+            product: item._id,
+            quantity: item.quantity,
+          })),
+          address: selectedAddress._id,
+        });
+
+        if (data.success) {
+          window.location.replace(data.url);
+        } else {
+          notify.error(data.message);
+        }
+      }
+    } catch (error) {
+      notify.error(error.message);
+    }
+  };
 
   useEffect(() => {
     if (products.length > 0 && cartItems) {
       getCart();
     }
   }, [products, cartItems]);
+
+  useEffect(() => {
+    if (user) {
+      getUserAddress();
+    }
+  }, [user]);
 
   return products.length > 0 && cartItems ? (
     <div className="flex flex-col md:flex-row mt-16">
@@ -116,12 +184,6 @@ const Cart = () => {
               onClick={() => removeFromCart(product._id)}
               className="cursor-pointer mx-auto"
             >
-              {/* <img
-                src={assets.remove_icon}
-                alt="Remove"
-                className="inline-block w-6 h-6"
-              /> */}
-
               <XCircle
                 size={24}
                 className="text-red-500 hover:text-red-600 cursor-pointer"
@@ -137,11 +199,6 @@ const Cart = () => {
           }}
           className="group cursor-pointer flex items-center mt-8 gap-2 text-primary font-medium"
         >
-          {/* <img
-            className="group-hover:-translate-x-1 transition"
-            src={assets.arrow_right_icon_colored}
-            alt="Arrow"
-          /> */}
           <ArrowLeft
             size={24}
             className="group-hover:-translate-x-1 transition text-primary size-5"

@@ -1,4 +1,3 @@
-// Client/src/pages/ProductDetails.jsx
 import React, { useEffect, useState } from "react";
 import { useAppContext } from "../context/AppContext";
 import { Link, useParams } from "react-router-dom";
@@ -77,17 +76,6 @@ const ProductDetails = () => {
             <h1 className="text-3xl font-medium">{product.name}</h1>
 
             <div className="flex items-center gap-0.5 mt-1">
-              {/* {Array(5)
-                .fill("")
-                .map((_, i) => (
-                  <img
-                    key={i}
-                    className="md:w-3.5 w-3.5"
-                    src={i < 4 ? assets.star_icon : assets.star_dull_icon}
-                    alt="Star"
-                  />
-                ))} */}
-
               {Array(5)
                 .fill("")
                 .map((_, i) =>

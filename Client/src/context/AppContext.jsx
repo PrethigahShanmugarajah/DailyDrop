@@ -1,8 +1,11 @@
-// Client/src/context/AppContextProvider
 import { createContext, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { dummyProducts } from "../assets/assets";
 import toast from "react-hot-toast";
+import axios from "axios";
+import { notify } from "../components/ToastProvider";
+
+axios.defaults.withCredentials = true;
+axios.defaults.baseURL = import.meta.env.VITE_BACKEND_URL;
 
 export const AppContext = createContext();
 
@@ -16,16 +19,48 @@ export const AppContextProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState({});
   const [searchQuery, setSearchQuery] = useState({});
 
-  /* ---------------- FETCH ALL PRODUCTS ---------------- */
-  const fetchProducts = async () => {
-    setProducts(dummyProducts);
+  /* -------- FETCH SELLER STATUS -------- */
+  const fetchSeller = async () => {
+    try {
+      const { data } = await axios.get("/api/seller/is-auth");
+      if (data.success) {
+        setIsSeller(true);
+      } else {
+        setIsSeller(false);
+      }
+    } catch (error) {
+      setIsSeller(false);
+    }
   };
 
-  useEffect(() => {
-    fetchProducts();
-  }, []);
+  /* -------- FETCH USER STATUS, USER DATA AND CART ITEMS-------- */
+  const fetchUser = async () => {
+    try {
+      const { data } = await axios.get("/api/user/is-auth");
+      if (data.success) {
+        setUser(data.user);
+        setCartItems(data.user.cartItems);
+      }
+    } catch (error) {
+      setUser(null);
+    }
+  };
 
-  /* ---------------- ADD PRODUCT TO CART ---------------- */
+  /* -------- FETCH ALL PRODUCTS -------- */
+  const fetchProducts = async () => {
+    try {
+      const { data } = await axios.get("/api/product/list");
+      if (data.success) {
+        setProducts(data.products);
+      } else {
+        notify.error(data.message);
+      }
+    } catch (error) {
+      notify.error(error.message);
+    }
+  };
+
+  /* -------- ADD PRODUCT TO CART -------- */
   const addToCart = (itemId) => {
     let cartData = structuredClone(cartItems);
 
@@ -38,7 +73,7 @@ export const AppContextProvider = ({ children }) => {
     toast.success("Added To Cart");
   };
 
-  /* ---------------- UPDATE CART ITEM QUANTITY ---------------- */
+  /* -------- UPDATE CART ITEM QUANTITY -------- */
   const updateCartItem = (itemId, quantity) => {
     let cartData = structuredClone(cartItems);
     cartData[itemId] = quantity;
@@ -46,7 +81,7 @@ export const AppContextProvider = ({ children }) => {
     toast.success("Cart Updated");
   };
 
-  /* ---------------- REMOVE PRODUCT CART FROM CART ---------------- */
+  /* -------- REMOVE PRODUCT CART FROM CART -------- */
   const removeFromCart = (itemId) => {
     let cartData = structuredClone(cartItems);
 
@@ -61,7 +96,7 @@ export const AppContextProvider = ({ children }) => {
     setCartItems(cartData);
   };
 
-  /* ---------------- GET CART ITEM COUNT ---------------- */
+  /* -------- GET CART ITEM COUNT -------- */
   const getCartCount = () => {
     let totalCount = 0;
     for (const item in cartItems) {
@@ -70,7 +105,7 @@ export const AppContextProvider = ({ children }) => {
     return totalCount;
   };
 
-  /* ---------------- GET CART TOTAL AMOUNT ---------------- */
+  /* -------- GET CART TOTAL AMOUNT -------- */
   const getCartAmount = () => {
     let totalAmount = 0;
     for (const items in cartItems) {
@@ -81,6 +116,30 @@ export const AppContextProvider = ({ children }) => {
     }
     return Math.floor(totalAmount * 100) / 100;
   };
+
+  useEffect(() => {
+    fetchSeller();
+    fetchProducts();
+    fetchUser();
+  }, []);
+
+  /* -------- UPDATE DATABASE CART ITEMS -------- */
+  useEffect(() => {
+    const updateCart = async () => {
+      try {
+        const { data } = await axios.post("/api/cart/update", { cartItems });
+        if (!data.success) {
+          notify.error(data.message);
+        }
+      } catch (error) {
+        notify.error(error.message);
+      }
+    };
+
+    if (user) {
+      updateCart();
+    }
+  }, [cartItems]);
 
   const value = {
     navigate,
@@ -96,10 +155,13 @@ export const AppContextProvider = ({ children }) => {
     updateCartItem,
     removeFromCart,
     cartItems,
+    setCartItems,
     searchQuery,
     setSearchQuery,
     getCartCount,
     getCartAmount,
+    axios,
+    fetchProducts,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

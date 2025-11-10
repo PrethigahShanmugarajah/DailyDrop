@@ -9,18 +9,15 @@
 @theme {
   --color-primary: #ef4444;
   --color-primary-dull: #dc2626;
-  --color-rose: #f16a6a;
-  --color-blush: #f38f8f;
   --color-peach: #f5b5b5;
-  --color-cotton: #f7dada;
-  --color-mist: #f9e5e5;
-  --color-petal: #fbecec;
-  --color-shell: #fdf5f5;
-  --color-snow: #fef9f9;
-  --color-ivory: #fffafa;
-  --color-white-soft: #fffdfd;
 }
 
 .no-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+.custom-progress {
+  background: #ffffff !important;
+  height: 4px !important;
+  border-radius: 4px !important;
 }

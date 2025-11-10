@@ -1,8 +1,9 @@
-// Client/src/pages/AddAddress .jsx
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Title from "../components/Title";
 import { assets } from "../assets/assets";
 import Button from "../components/Button";
+import { useAppContext } from "../context/AppContext";
+import { notify } from "../components/ToastProvider";
 
 const InputField = ({ type, placeholder, name, handleChange, address }) => (
   <input
@@ -17,6 +18,8 @@ const InputField = ({ type, placeholder, name, handleChange, address }) => (
 );
 
 const AddAddress = () => {
+  const { axios, user, navigate } = useAppContext();
+
   const [address, setAddress] = useState({
     firstName: "",
     lastName: "",
@@ -39,8 +42,26 @@ const AddAddress = () => {
   };
 
   const onSubmitHandler = async (e) => {
-    e.preventFefault();
+    try {
+      e.preventDefault();
+      const { data } = await axios.post("/api/address/add", { address });
+
+      if (data.success) {
+        notify.success(data.message);
+        navigate("/cart");
+      } else {
+        notify.error(data.message);
+      }
+    } catch (error) {
+      notify.error(error.message);
+    }
   };
+
+  useEffect(() => {
+    if (!user) {
+      navigate("/cart");
+    }
+  }, []);
 
   return (
     <div className="mt-16 pb-16">

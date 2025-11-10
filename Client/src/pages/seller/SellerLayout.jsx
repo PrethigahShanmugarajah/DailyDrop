@@ -1,13 +1,13 @@
-// Client/src/pages/seller/SellerLayout .jsx
 import React from "react";
 import { useAppContext } from "../../context/AppContext";
 import { assets } from "../../assets/assets";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import Button from "../../components/Button";
 import { ListOrdered, ShoppingBag, SquarePlus } from "lucide-react";
+import { notify } from "../../components/ToastProvider";
 
 const SellerLayout = () => {
-  const { setIsSeller } = useAppContext();
+  const { setIsSeller, axios, navigate } = useAppContext();
 
   const sidebarLinks = [
     { name: "Add Product", path: "/seller", icon: <SquarePlus size={22} /> },
@@ -20,7 +20,17 @@ const SellerLayout = () => {
   ];
 
   const logout = async () => {
-    setIsSeller(false);
+    try {
+      const { data } = await axios.get("/api/seller/logout");
+      if (data.success) {
+        notify.success(data.message);
+        navigate("/");
+      } else {
+        notify.error(data.message);
+      }
+    } catch (error) {
+      notify.error(error.message);
+    }
   };
 
   return (
@@ -42,14 +52,14 @@ const SellerLayout = () => {
       </div>
 
       <div className="flex">
-        <div className="md:w-64 w-16 border-r h-[95vh] text-base border-gray-300 pt-4 flex flex-col">
+        <div className="md:w-64 w-16 border-r h-[95vh] text-base border-gray-300 pt-4 flex flex-col text-black">
           {sidebarLinks.map((item) => (
             <NavLink
               to={item.path}
               key={item.name}
               end={item.path === "/seller"}
               className={({ isActive }) =>
-                `flex items-center py-3 px-4 gap-3${
+                `flex items-center py-3 px-4 gap-3 ${
                   isActive
                     ? "border-r-4 md:border-r-[6px] bg-primary/10 border-primary text-primary"
                     : "hover:bg-gray-100/90 border-white"
@@ -58,10 +68,33 @@ const SellerLayout = () => {
             >
               {/* <img src={item.icon} alt="" className="w-7 h-7" /> */}
 
-              <div className="w-7 h-7 flex items-center justify-center text-black">
+              {/* <div className="w-7 h-7 flex items-center justify-center text-black ">
+                {item.icon}
+              </div> */}
+
+              {/* <div
+                className={({ isActive }) =>
+                  `w-7 h-7 flex items-center justify-center ${
+                    isActive ? "text-primary" : "text-black"
+                  } `
+                }
+              >
                 {item.icon}
               </div>
-              <p className="md:block hidden text-center">{item.name}</p>
+              <p className="md:block hidden text-center">{item.name}</p> */}
+
+              {({ isActive }) => (
+                <div className="flex items-center gap-2">
+                  <div
+                    className={`w-7 h-7 flex items-center justify-center ${
+                      isActive ? "text-primary" : "text-black"
+                    }`}
+                  >
+                    {item.icon}
+                  </div>
+                  <p className="md:block hidden text-center">{item.name}</p>
+                </div>
+              )}
             </NavLink>
           ))}
         </div>
